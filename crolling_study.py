@@ -1,12 +1,18 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+import time
 
-# Service 객체를 명시적으로 설정
-service = Service(ChromeDriverManager().install())
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Chrome(options=options)
 
-# Chrome WebDriver 실행
-driver = webdriver.Chrome(service=service)
+url = "https://www.koreabaseball.com/Schedule/GameCenter/DaySchedule.aspx?date=2024-03-23"
+driver.get(url)
+time.sleep(5)
 
-# 웹페이지 접속
-driver.get('https://www.koreabaseball.com/')
+# HTML 저장
+with open("debug_20240323.html", "w", encoding="utf-8") as f:
+    f.write(driver.page_source)
+
+driver.quit()
+print("✅ HTML 저장 완료 (debug_20240323.html)")
