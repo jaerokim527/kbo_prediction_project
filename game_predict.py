@@ -82,5 +82,5 @@ def predict_game(home_team, away_team, home_pitcher, away_pitcher):
 
 # 예시 실행
 if __name__ == "__main__":
-    prob = predict_game("LG", "한화", "임찬규", "류현진")
-    print(f"🎯 LG vs 한화 (임찬규 vs 류현진) → 홈팀 승리 확률: {prob * 100:.2f}%")
+    prob = predict_game("NC", "한화", "목지훈", "문동주")
+    print(f"🎯 NC vs 한화 (목지훈 vs 문동주) → 홈팀 승리 확률: {prob * 100:.2f}%")
